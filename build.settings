@@ -1,0 +1,88 @@
+settings =
+{
+  orientation =
+  {
+    default ="portrait",
+    supported = 
+    { 
+      "portrait", "portraitupsidedown", 
+    },    
+  },
+
+  iphone =
+  {
+    plist =
+    {
+      FacebookAppID = "507091762825003",  --replace XXXXXXXXXX with your Facebook App ID
+
+      CFBundleURLTypes = {
+          {
+          CFBundleURLSchemes = { "fb507091762825003", }  --replace XXXXXXXXXX with your Facebook App ID
+          }
+      },
+
+      UIApplicationExitsOnSuspend = false,
+      CFBundleIdentifier="com.womistudios.luckywheel.iphone",
+      CFBundleIconFiles = { 
+            "icon57.png",
+            "icon@2x.png",
+            "icon-72.png",
+            "icon-72@2x.png",
+            "icon-60@2x.png",
+            "icon-76@2x.png",
+            "icon-76.png",
+      },
+      CFBundleDisplayName = "Lucky Wheel",
+    },
+  },
+
+  --android
+  android =
+  {
+    usesPermissions =
+    {
+      "android.permission.INTERNET",
+    },
+    googlePlayGamesAppId = "XXXXXXXXXXXX",
+  },
+
+
+  plugins =
+  {
+        ["facebook"] =
+        {
+            publisherId = "com.coronalabs",
+            supportedPlatforms = { iphone=true, ["iphone-sim"]=true },
+        },
+        --for activity pop up for sharing twitter,face book,email 
+        ["CoronaProvider.native.popup.social"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    
+        ["CoronaProvider.analytics.flurry"] =
+        {
+            publisherId = "com.coronalabs"
+        },      
+
+        ["CoronaProvider.ads.iads"] =
+        {
+            publisherId = "com.coronalabs",
+            supportedPlatforms = { iphone=true, ["iphone-sim"]=true },
+        },        
+        
+        -- for IOS
+        ["CoronaProvider.gameNetwork.apple"] =
+        {
+            publisherId = "com.coronalabs",
+            supportedPlatforms = { iphone=true, ["iphone-sim"]=true },
+        },
+        
+        -- for Android
+--        ["CoronaProvider.gameNetwork.google"] =
+--        {
+--            publisherId = "com.coronalabs",
+--            supportedPlatforms = { android=true },
+--        },      
+  },  
+}
